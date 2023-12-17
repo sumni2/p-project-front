@@ -7,7 +7,7 @@ function Classalone(){
         <script src="https://cdn.tailwindcss.com"></script>
         <title>Tailwind CSS</title>
         <link rel="stylesheet" href="./dist/output.css"></link>
-        </head> */}
+        </head>  */}
         <body class="bg-gray-50">
         <div class="container mx-auto p-4">
             <div class="bg-white shadow rounded-lg p-6">
