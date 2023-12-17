@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Buildings(){
+    const navigate = useNavigate();
+      
+    const goClassAlone = () => {
+        navigate("/Classalone");
+    }
   return (
     <div>
         <body class="bg-gray-50">
@@ -10,77 +16,95 @@ function Buildings(){
                     <h1 class="text-xl font-semibold mb-2">현재 위치한 건물</h1>
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-blue-600" checked />
-                            <span class="ml-2">Entertainment</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="1" class="ml-2">공과대학2</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-green-500" />
-                            <span class="ml-2">Health</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="2" class="ml-2">바이오나노대학</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-red-500" />
-                            <span class="ml-2">Music</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="3" class="ml-2">가천관</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-gray-600" />
-                            <span class="ml-2">Computers</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="4" class="ml-2">비전타워</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-yellow-500" />
-                            <span class="ml-2">Finance</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="5" class="ml-2">공과대학1</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-purple-600" />
-                            <span class="ml-2">Technology</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="6" class="ml-2">예술대학2</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-blue-300" />
-                            <span class="ml-2">Sports</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="7" class="ml-2">한의과대학</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-pink-400" />
-                            <span class="ml-2">Travel</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="8" class="ml-2">산학협력관</span>
                         </label>
                         <label class="inline-flex items-center">
-                            <input type="checkbox" class="form-checkbox text-indigo-600" />
-                            <span class="ml-2">Publishing</span>
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="9" class="ml-2">AI관</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="10" class="ml-2">예술대학1</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="11" class="ml-2">글로벌센터</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="12" class="ml-2">종합운동장</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="13" class="ml-2">교육대학원</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="14" class="ml-2">바이오나노연구</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="15" class="ml-2">반도체대학</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="16" class="ml-2">테니스장</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="17" class="ml-2">바나연</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span id="18" class="ml-2">대학원</span>
                         </label>
                     </div>
                 </div>
                 <div class="flex justify-center">
                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                        SUBMIT
+                        제출
                     </button>
                 </div>
                 <div class="mt-8">
-                    <h2 class="text-lg font-semibold mb-2">층별 안전점수</h2>
+                    <h2 class="text-lg font-semibold mb-2">추천 건물</h2>
                     <table class="min-w-full table-auto">
                         <thead class="bg-gray-200">
                             <tr>
-                                <th class="px-4 py-2 text-left">층</th>
-                                <th class="px-4 py-2 text-left">유형에서 소요시간</th>
-                                <th class="px-4 py-2 text-left">선택에서 소요시간</th>
-                                <th class="px-4 py-2 text-left">항목에서 소요시간</th>
+                                <th class="px-4 py-2 text-left">건물 이름</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="border px-4 py-2">야외</td>
-                                <td class="border px-4 py-2">39</td>
-                                <td class="border px-4 py-2">30</td>
-                                <td class="border px-4 py-2">30</td>
-                            </tr>
-                            <tr class="bg-gray-100">
-                                <td class="border px-4 py-2">출입구</td>
-                                <td class="border px-4 py-2">28</td>
-                                <td class="border px-4 py-2">43</td>
-                                <td class="border px-4 py-2">28</td>
-                            </tr>
-                            <tr>
-                                <td class="border px-4 py-2">화장실</td>
-                                <td class="border px-4 py-2">26</td>
-                                <td class="border px-4 py-2">41</td>
-                                <td class="border px-4 py-2">39</td>
+                                <td class="border px-4 py-2" onClick={goClassAlone}>AI관</td>
                             </tr>
                         </tbody>
                     </table>
