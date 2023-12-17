@@ -1,19 +1,13 @@
-import {useState} from "react";
-import Dropdown from "./compo/Dropdown";
+// import {useState} from "react";
+// import Dropdown from "./compo/Dropdown";
+import Classalone from "./compo/Classalone";
 
-function App(props){
-  const [Down, setDown] = useState(false);
+function App(){
+  // const [Down, setDown] = useState(false);
 
   return (
     <div>
-      <button onClick={(e)=>setDown(!Down)}>1층</button>
-
-      <Dropdown visibility={Down}>
-        <ul>
-          <li>201호</li>
-          <li>202호</li>
-        </ul>
-      </Dropdown>
+      <Classalone></Classalone>
     </div>
   );
 }
