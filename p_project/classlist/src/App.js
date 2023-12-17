@@ -1,13 +1,14 @@
-// import {useState} from "react";
-// import Dropdown from "./compo/Dropdown";
 import Classalone from "./compo/Classalone";
+import Buildings from "./compo/Buildings";
+import Mainhome from "./compo/Mainhome";
 
 function App(){
-  // const [Down, setDown] = useState(false);
 
   return (
     <div>
       <Classalone></Classalone>
+      <Buildings></Buildings>
+      <Mainhome></Mainhome>
     </div>
   );
 }

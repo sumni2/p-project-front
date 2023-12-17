@@ -3,11 +3,6 @@ import React from "react";
 function Classalone(){
   return (
     <div>
-        {/* <head>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <title>Tailwind CSS</title>
-        <link rel="stylesheet" href="./dist/output.css"></link>
-        </head>  */}
         <body class="bg-gray-50">
         <div class="container mx-auto p-4">
             <div class="bg-white shadow rounded-lg p-6">
