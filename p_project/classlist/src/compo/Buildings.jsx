@@ -1,12 +1,54 @@
-import React from "react";
-// import { useEffect, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
+const buildings = {
+  1: "공과대학2",
+  2: "바이오나노대학",
+  3: "가천관",
+  4: "비전타워",
+  5: "공과대학1",
+  6: "예술대학2",
+  7: "한의과대학",
+  8: "산학협력관",
+  9: "AI관",
+  10: "예술대학1",
+  11: "글로벌센터",
+  12: "종합운동장",
+  13: "교육대학원",
+  14: "바이오나노연구",
+  15: "반도체대학",
+  16: "테니스장",
+  17: "바나연",
+  18: "대학원",
+};
 
 function Buildings() {
   const navigate = useNavigate();
-
   const goClassAlone = () => {
     navigate("/Classalone");
+  };
+
+  const [checkedItems, setCheckedItems] = useState([]);
+  const [recommendedBuilding, setRecommendedBuilding] = useState({});
+
+  const handleCheck = (e, id) => {
+    if (e.target.checked) {
+      setCheckedItems((prev) => [...prev, id]);
+    } else if (checkedItems.includes(id)) {
+      setCheckedItems(checkedItems.filter((it) => it !== id));
+    }
+  };
+
+  const handleSubmit = () => {
+    axios
+      .get(
+        "http://ceprj.gachon.ac.kr:60034/api/recommend?" +
+          checkedItems.map((it) => "id=" + it).join("&")
+      )
+      .then((res) => {
+        setRecommendedBuilding(res.data);
+      });
   };
 
   return (
@@ -17,120 +59,24 @@ function Buildings() {
             <div class="mb-4">
               <h1 class="text-xl font-semibold mb-2">현재 위치한 건물</h1>
               <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="1" class="ml-2">
-                    공과대학2
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="2" class="ml-2">
-                    바이오나노대학
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="3" class="ml-2">
-                    가천관
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="4" class="ml-2">
-                    비전타워
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="5" class="ml-2">
-                    공과대학1
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="6" class="ml-2">
-                    예술대학2
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="7" class="ml-2">
-                    한의과대학
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="8" class="ml-2">
-                    산학협력관
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="9" class="ml-2">
-                    AI관
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="10" class="ml-2">
-                    예술대학1
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="11" class="ml-2">
-                    글로벌센터
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="12" class="ml-2">
-                    종합운동장
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="13" class="ml-2">
-                    교육대학원
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="14" class="ml-2">
-                    바이오나노연구
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="15" class="ml-2">
-                    반도체대학
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="16" class="ml-2">
-                    테니스장
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="17" class="ml-2">
-                    바나연
-                  </span>
-                </label>
-                <label class="inline-flex items-center">
-                  <input type="checkbox" class="form-checkbox" />
-                  <span id="18" class="ml-2">
-                    대학원
-                  </span>
-                </label>
+                {Object.keys(buildings).map((it) => (
+                  <label class="inline-flex items-center" key={it}>
+                    <input
+                      type="checkbox"
+                      class="form-checkbox"
+                      checked={checkedItems.includes(it)}
+                      onChange={(e) => handleCheck(e, it)}
+                    />
+                    <span class="ml-2">{buildings[it]}</span>
+                  </label>
+                ))}
               </div>
             </div>
             <div class="flex justify-center">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 type="button"
+                onClick={handleSubmit}
               >
                 제출
               </button>
@@ -146,7 +92,7 @@ function Buildings() {
                 <tbody>
                   <tr>
                     <td class="border px-4 py-2" onClick={goClassAlone}>
-                      AI
+                      {recommendedBuilding.name}
                     </td>
                   </tr>
                 </tbody>
